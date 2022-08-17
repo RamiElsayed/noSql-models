@@ -1,13 +1,22 @@
-const mongoose = require('mongoose');
+const { Schema, model } = require("mongoose");
 
-// TODO: Define a new schema named `bookSchema`
+const bookSchema = {
+    title: {
+        type: String,
+        required: true,
+    },
+    author: {
+        type: String,
+        required: true,
+    },
+    price: {
+        type: Number,
+        required: true,
+    }
+}
 
-// TODO: Create a custom instance method named `getDiscount`
+const schema = new Schema(bookSchema);
 
-// TODO: Create a model named `Book`
-
-// TODO: Create a new instance of the model
-
-// TODO: Call the custom instance method on the instance
+const Book = model("Book", schema);
 
 module.exports = Book;
