@@ -17,6 +17,11 @@ const bookSchema = {
 
 const schema = new Schema(bookSchema);
 
+schema.methods.getDiscount = function (discount) {
+    this.price -= (this.price * discount)/ 100;
+    return this;
+}
+
 const Book = model("Book", schema);
 
 module.exports = Book;

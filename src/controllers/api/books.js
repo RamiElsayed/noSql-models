@@ -14,7 +14,14 @@ const getAllBooks = async (req, res) => {
 const getOneBook = async (req, res) => {
   try {
     const { id } = req.params;
+    const { DISCOUNT_CODE } = req.query;
+
     const data = await Book.findById(id);
+
+    if (DISCOUNT_CODE) {
+      const discountBook = data.getDiscount(+DISCOUNT_CODE);
+      return res.status(200).json({ discountBook });
+    }
     return res.status(200).json({ data });
   } catch (error) {
     console.log(`[ERROR]: Failed to get book | ${error.message}`);

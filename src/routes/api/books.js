@@ -4,7 +4,7 @@ const { getAllBooks, getOneBook} = require("../../controllers/api/books")
 
 const router = Router();
 
-router.use("/", getAllBooks);
-router.use("/:id", getOneBook);
+router.get("/", getAllBooks);
+router.get("/:id", getOneBook);
 
 module.exports = router;
