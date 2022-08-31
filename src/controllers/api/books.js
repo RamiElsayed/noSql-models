@@ -1,4 +1,3 @@
-const { ObjectId } = require("bson");
 const { Book } = require("../../models");
 
 const getAllBooks = async (req, res) => {
